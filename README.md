@@ -1,11 +1,11 @@
 # edx-project-1
 
-User Story:
+## User Story:
 We want to make a weekly travel planner that makes travelling easier for the user.
 It would ideally include the current weather of the destination, landmarks or tourist attraction sites and some hotel options.
 This would result in an all in one itinerary for the user.
 
-Acceptance criteria:
+## Acceptance criteria:
 When the user opens the planner they will be subjected to a modal (what should the modal do?)
 The planner should display a 7-day calendar.
 The time and date should be shown using the day(js) library.
