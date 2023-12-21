@@ -149,6 +149,7 @@ const temperatureElement = document.getElementById('temperature');
 const humidityElement = document.getElementById('humidity');
 const windElement = document.getElementById('wind');
 const iconElement = document.getElementById('weather-icon');
+const locationElement = $('#location');
 
 function updateWeatherData(latitude, longitude, cityInput) {
   const locationQuery = cityInput ? `q=${cityInput}` : `lat=${latitude}&lon=${longitude}`;
@@ -174,7 +175,7 @@ function updateWeatherData(latitude, longitude, cityInput) {
     });
 }
 
-// Get user's geolocation
+// // Get user's geolocation
 if (navigator.geolocation) {
   navigator.geolocation.getCurrentPosition(position => {
     const { latitude, longitude } = position.coords;
@@ -190,14 +191,36 @@ if (navigator.geolocation) {
 }
 
 // Listen for changes in the input field
-$('#cityInput').on('input', function () {
-  const cityInput = $(this).val();
-  navigator.geolocation.getCurrentPosition(position => {
-    const { latitude, longitude } = position.coords;
-    updateWeatherData(latitude, longitude, cityInput);
-  });
-});
 
+// Search button click function
+const searchBtn = $('.searchBtn');
+
+searchBtn.on('click', function () {
+
+  const cityInput = $('#cityInput').val();
+
+  const locationQuery = cityInput ? `q=${cityInput}` : `lat=${latitude}&lon=${longitude}`;
+
+  const apiUrl = `https://api.openweathermap.org/data/2.5/weather?${locationQuery}&appid=${apiKey}&units=metric`;
+
+  fetch(apiUrl)
+    .then(response => response.json())
+    .then(data => {
+      console.log(data)
+      temperatureElement.textContent = `Temperature: ${data.main.temp} °C`;
+      humidityElement.innerHTML = `Humidity: ${data.main.humidity}%`;
+      windElement.innerHTML = `Wind: ${data.wind.speed} m/s`;
+      locationElement.text(data.name);
+
+      const weatherIconCode = data.weather[0].icon;
+      const partialFileName = getCustomIconFileName(weatherIconCode);
+      const customIconPath = `./resources/weather-conditions/${partialFileName}.svg`;
+      iconElement.src = customIconPath;
+    })
+    .catch(error => {
+      console.error('Error fetching data:', error);
+    });
+});
 
 // Function to get the custom icon file name based on OpenWeatherMap icon codes
 function getCustomIconFileName(iconCode) {
