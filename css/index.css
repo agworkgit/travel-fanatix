@@ -1,0 +1,35 @@
+
+
+.hero img {
+    height: 30vh;
+    width: 100vw;
+    object-fit: cover;
+    /* filter: brightness(60%); */
+}
+
+.hero {
+    border-radius: 0px 0px 5px 5px;
+    overflow: hidden;
+}
+
+.card-img-overlay {
+    height: 30vh;
+}
+
+textarea {
+    resize: none;
+}
+
+.right-info {
+    text-align: right;
+}
+
+.weather-icon {
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.hidden {
+    display: none;
+}
