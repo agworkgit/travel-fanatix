@@ -1,0 +1,23 @@
+
+.carousel-item {
+    background-color: lightslategray !important;
+    padding: 20px;
+}
+
+.carousel-item h5 {
+    color: antiquewhite;
+}
+
+.carousel-item img {
+    margin: 20px;
+}
+
+.carousel-item p {
+    color: antiquewhite;
+    font-size: 15px;
+}
+
+.time-input {
+    margin-bottom: 50px !important;
+}
+
