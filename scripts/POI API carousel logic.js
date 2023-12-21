@@ -61,12 +61,18 @@ submitBtn.on('click', function(event) {
 			for (let i = 0; i < 5; i++) {
 				const element = POIarray[i];
 				var POIname = element.name
+				console.log(POIname);
 				var POIimg = element.photo.images.medium.url
 				var POIdescription = element.description
 				var POIranking = element.ranking 
 				var POIaddress = element.address
 
 				const carouselItem = $('<div>');
+
+				 // unique ID for each carousel item
+				 const carouselID = 'carouselItem' + i;
+				 carouselItem.attr('id', carouselID);
+			 
 				carouselItem.addClass('carousel-item')
 
 				if (i === 0) {
@@ -75,6 +81,7 @@ submitBtn.on('click', function(event) {
 
 				POITitle = $('<h5>');
 				POITitle.text(POIname);
+			
 
 				POIpic = $('<img>');
 				POIpic.attr('src', POIimg)
@@ -103,7 +110,50 @@ submitBtn.on('click', function(event) {
 				carouselItem.append(POITitle, POIpic, carouselContainer);
 				carouselContent.append(carouselItem)
 
-				}
+				console.log(POIdata);
+
+				// adding functionality to the save to btn button -Amaal
+				// const calendarBtn = $('.saveButton');
+
+				// $(document).ready(function () {
+				// 	calendarBtn.on('click', function () {
+
+				// 		// const carouselID = $('#carouselID');
+
+				// 		const itemName = POIname;
+				// 		console.log(itemName);
+
+				// 		const listItem = $('<li>').text(itemName);
+
+				// 		$('#calendarList').append(listItem);
+
+				// 	})
+				// })
+
+			}
+
+			const calendarBtn = $('.saveButton');
+
+				$(document).ready(function () {
+					calendarBtn.on('click', function () {
+						console.log(this);
+						console.log($(this).parents('h5'));
+
+						// const carouselID = $('#carouselID');
+
+						const itemName = POIname;
+						// console.log(itemName);
+
+						const listItem = $('<li>').text(itemName);
+
+						$('#calendarList').append(listItem);
+						
+
+					})
+				})
 		  })	  
 	  })
 	})
+
+
+
