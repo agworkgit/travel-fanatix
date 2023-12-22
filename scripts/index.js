@@ -360,4 +360,4 @@ updateLocation();
 //       container.append(cardHtml);
 //     });
 //   }
-// });
+});
