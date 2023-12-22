@@ -146,6 +146,7 @@ submitBtn.on('click', function(event) {
 
 			}
 
+			
 			const calendarBtn = $('.saveButton');
 
 			$(document).ready(function () {
@@ -164,14 +165,21 @@ submitBtn.on('click', function(event) {
 					console.log(plannerPOI)
 					console.log(plannerTime)
 					console.log(plannerAdd)
+
+					// adding to Adams html file
 					
 					const poiItem = $('<li>').text(plannerTime + ': ' + plannerPOI);
 					const poiAdd = $('<p>').text(plannerAdd);
 
-					$('#calendarList').append(poiItem, poiAdd);				
+					$('#calendarList').append(poiItem, poiAdd);	
+					
+					// adding to Alex html file
+
 
 				})
 			})
+
+		
 
 				// $('.saveButton').on('click', function(event) {
 				// 	event.preventDefault();
