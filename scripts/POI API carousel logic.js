@@ -172,8 +172,6 @@ submitBtn.on('click', function(event) {
 					const poiAdd = $('<p>').text(plannerAdd);
 
 					$('#calendarList').append(poiItem, poiAdd);	
-					
-					// adding to Alex html file
 
 
 				})
