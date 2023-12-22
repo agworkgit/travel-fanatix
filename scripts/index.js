@@ -400,4 +400,4 @@ updateLocation();
 //       container.append(cardHtml);
 //     });
 //   }
- });
+
