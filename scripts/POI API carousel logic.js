@@ -3,6 +3,8 @@ const cardBox = $('#cardbox')
 const modalContent = $('#modal-content')
 const carouselContent = $('#carousel-inner')
 
+const poiNames = [];
+
 submitBtn.on('click', function(event) {
 	event.preventDefault();
 	const citySearch = $('#search-input').val().trim();
@@ -111,6 +113,7 @@ submitBtn.on('click', function(event) {
 				carouselContent.append(carouselItem)
 
 				console.log(POIdata);
+				poiNames.push(POIname);
 
 				// adding functionality to the save to btn button -Amaal
 				// const calendarBtn = $('.saveButton');
@@ -136,17 +139,20 @@ submitBtn.on('click', function(event) {
 
 				$(document).ready(function () {
 					calendarBtn.on('click', function () {
-						console.log(this);
-						console.log($(this).parents('h5'));
-
-						// const carouselID = $('#carouselID');
-
-						const itemName = POIname;
+						
+						const carouselItem = $(this).closest('.carousel-item');
+						const index = carouselItem.index();
+						const selectedPOIname = poiNames[index];
+						console.log(selectedPOIname);
+						// const itemName = POIname;
 						// console.log(itemName);
 
-						const listItem = $('<li>').text(itemName);
+						// const listItem = $('<li>').text(itemName);
 
-						$('#calendarList').append(listItem);
+						// $('#calendarList').append(listItem);
+
+						const listItem = $('<li>').text(selectedPOIname);
+        				$('#calendarList').append(listItem);
 						
 
 					})
@@ -154,6 +160,3 @@ submitBtn.on('click', function(event) {
 		  })	  
 	  })
 	})
-
-
-
