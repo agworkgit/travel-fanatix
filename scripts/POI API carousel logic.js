@@ -2,11 +2,23 @@ const submitBtn = $('#search-button')
 const cardBox = $('#cardbox')
 const modalContent = $('#modal-content')
 const carouselContent = $('#carousel-inner')
+const loading = $('#loading')
+const overlay = $('#overlay')
 
 submitBtn.on('click', function(event) {
 	event.preventDefault();
+
 	const citySearch = $('#search-input').val().trim();
-	console.log(citySearch);
+
+	$('#overlayText').empty()
+	var transportCity = $('<h5>')
+	transportCity.text('Transporting you to ' + citySearch + '. One moment...')
+	$('#overlayText').append(transportCity)
+	overlay.removeClass('hidden')
+
+	setTimeout(() => {
+	overlay.addClass('hidden')
+	}, 5000);
 
 	const locationCodeurl = 'https://tourist-attraction.p.rapidapi.com/typeahead';
 	const locationCodeoptions = {
@@ -92,7 +104,7 @@ submitBtn.on('click', function(event) {
 				POIdes = $('<p>');
 				POIdes.text(POIdescription)
 
-				var POIadd = $('<p>');
+				var POIadd = $('<h6>');
 				POIadd.text('Address: ' + POIaddress)
 
           		var POIrank = $('<p>');
@@ -151,6 +163,23 @@ submitBtn.on('click', function(event) {
 
 					})
 				})
+
+				$('.saveButton').on('click', function(event) {
+					event.preventDefault();
+				
+					a = $(this)
+					b = a.parent().parent()
+					c = a.parent().children('input')
+					
+					plannerPOI = b.children('h5').text()
+					plannerTime = c.val().trim()
+					plannerAdd = b.children('div').children('h6').text()
+
+					console.log(plannerPOI)
+					console.log(plannerTime)
+					console.log(plannerAdd)
+				})
+
 		  })	  
 	  })
 	})
