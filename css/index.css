@@ -1,4 +1,16 @@
+body {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
 
+.navbar-brand {
+    color: white;
+}
+
+.navbar-brand:hover {
+    color: white;
+}
 
 .hero img {
     height: 30vh;
@@ -32,4 +44,20 @@ textarea {
 
 .hidden {
     display: none;
+}
+
+.light-theme {
+    background-color: #ffffff;
+    background-image: linear-gradient(315deg, #ffffff 0%, #347aca 74%);
+    color: black;
+}
+
+.dark-theme {
+    background-color: #090947;
+    background-image: linear-gradient(315deg, #090947 0%, #5a585a 74%);    
+    color: white;
+}
+
+.modal-title {
+    color: black;
 }
