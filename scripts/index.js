@@ -150,6 +150,7 @@ const temperatureElement = document.getElementById('temperature');
 const humidityElement = document.getElementById('humidity');
 const windElement = document.getElementById('wind');
 const iconElement = document.getElementById('weather-icon');
+const locationElement = $('#location');
 
 function updateWeatherData(latitude, longitude, cityInput) {
   let locationQuery;
@@ -184,7 +185,7 @@ function updateWeatherData(latitude, longitude, cityInput) {
     });
 }
 
-// Get user's geolocation
+// // Get user's geolocation
 if (navigator.geolocation) {
   navigator.geolocation.getCurrentPosition(position => {
     const { latitude, longitude } = position.coords;
@@ -200,18 +201,36 @@ if (navigator.geolocation) {
 }
 
 // Listen for changes in the input field
-$('#cityInput').on('input', function () {
-  const cityInput = $(this).val();
 
-  // Check if the cityInput is long enough to be a valid city name
-  if (cityInput.length >= 4) {
-    navigator.geolocation.getCurrentPosition(position => {
-      const { latitude, longitude } = position.coords;
-      updateWeatherData(latitude, longitude, cityInput);
+// Search button click function
+const searchBtn = $('.searchBtn');
+
+searchBtn.on('click', function () {
+
+  const cityInput = $('#cityInput').val();
+
+  const locationQuery = cityInput ? `q=${cityInput}` : `lat=${latitude}&lon=${longitude}`;
+
+  const apiUrl = `https://api.openweathermap.org/data/2.5/weather?${locationQuery}&appid=${apiKey}&units=metric`;
+
+  fetch(apiUrl)
+    .then(response => response.json())
+    .then(data => {
+      console.log(data)
+      temperatureElement.textContent = `Temperature: ${data.main.temp} °C`;
+      humidityElement.innerHTML = `Humidity: ${data.main.humidity}%`;
+      windElement.innerHTML = `Wind: ${data.wind.speed} m/s`;
+      locationElement.text(data.name);
+
+      const weatherIconCode = data.weather[0].icon;
+      const partialFileName = getCustomIconFileName(weatherIconCode);
+      const customIconPath = `./resources/weather-conditions/${partialFileName}.svg`;
+      iconElement.src = customIconPath;
+    })
+    .catch(error => {
+      console.error('Error fetching data:', error);
     });
-  }
 });
-
 
 // Function to get the custom icon file name based on OpenWeatherMap icon codes
 function getCustomIconFileName(iconCode) {
@@ -342,46 +361,3 @@ updateLocation();
 //     });
 //   }
 // });
-
-});
-
-$(document).ready(function () {
-  // Function to update the theme based on the time
-  function updateTheme() {
-    const currentHour = dayjs().hour();
-
-    // You can adjust the time ranges according to your needs
-    const isDayTime = currentHour >= 8 && currentHour < 16;
-
-    // Update the theme class based on the time
-    if (isDayTime) {
-      $('body').removeClass('dark-theme').addClass('light-theme');
-    } else {
-      $('body').removeClass('light-theme').addClass('dark-theme');
-    }
-  }
-
-  function updateTime() {
-    var currentTime = dayjs().format('HH:mm');
-    $('.nav-time').text(currentTime);
-
-    // Call the function to update the theme based on the time
-    updateTheme();
-  }
-
-  // Update the time initially
-  updateTime();
-
-  // Update the time every second
-  setInterval(updateTime, 1000);
-
-  // Update the "Day" element with the current day
-  const currentTime = dayjs();
-  const dayElement = $('.card-title[data-update="day"]');
-  dayElement.text(currentTime.format("dddd"));
-
-  // Your existing checklist functions, modal, weather API, Unsplash API, and other code
-
-  // Call the function to update the theme on page load
-  updateTheme();
-});
