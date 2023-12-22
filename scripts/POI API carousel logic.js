@@ -2,13 +2,24 @@ const submitBtn = $('#search-button')
 const cardBox = $('#cardbox')
 const modalContent = $('#modal-content')
 const carouselContent = $('#carousel-inner')
+const loading = $('#loading')
+const overlay = $('#overlay')
 
-const poiNames = [];
 
 submitBtn.on('click', function(event) {
 	event.preventDefault();
+
 	const citySearch = $('#search-input').val().trim();
-	console.log(citySearch);
+
+	$('#overlayText').empty()
+	var transportCity = $('<h5>')
+	transportCity.text('Transporting you to ' + citySearch + '. One moment...')
+	$('#overlayText').append(transportCity)
+	overlay.removeClass('hidden')
+
+	setTimeout(() => {
+	overlay.addClass('hidden')
+	}, 5000);
 
 	const locationCodeurl = 'https://tourist-attraction.p.rapidapi.com/typeahead';
 	const locationCodeoptions = {
@@ -94,7 +105,7 @@ submitBtn.on('click', function(event) {
 				POIdes = $('<p>');
 				POIdes.text(POIdescription)
 
-				var POIadd = $('<p>');
+				var POIadd = $('<h6>');
 				POIadd.text('Address: ' + POIaddress)
 
           		var POIrank = $('<p>');
@@ -137,26 +148,47 @@ submitBtn.on('click', function(event) {
 
 			const calendarBtn = $('.saveButton');
 
-				$(document).ready(function () {
-					calendarBtn.on('click', function () {
-						
-						const carouselItem = $(this).closest('.carousel-item');
-						const index = carouselItem.index();
-						const selectedPOIname = poiNames[index];
-						console.log(selectedPOIname);
-						// const itemName = POIname;
-						// console.log(itemName);
+			$(document).ready(function () {
+				calendarBtn.on('click', function (event) {
 
-						// const listItem = $('<li>').text(itemName);
+					event.preventDefault();
 
-						// $('#calendarList').append(listItem);
+					a = $(this)
+					b = a.parent().parent()
+					c = a.parent().children('input')
+					
+					plannerPOI = b.children('h5').text()
+					plannerTime = c.val().trim()
+					plannerAdd = b.children('div').children('h6').text()
 
-						const listItem = $('<li>').text(selectedPOIname);
-        				$('#calendarList').append(listItem);
-						
+					console.log(plannerPOI)
+					console.log(plannerTime)
+					console.log(plannerAdd)
+					
+					const poiItem = $('<li>').text(plannerTime + ': ' + plannerPOI);
+					const poiAdd = $('<p>').text(plannerAdd);
 
-					})
+					$('#calendarList').append(poiItem, poiAdd);				
+
 				})
+			})
+
+				// $('.saveButton').on('click', function(event) {
+				// 	event.preventDefault();
+				
+				// 	a = $(this)
+				// 	b = a.parent().parent()
+				// 	c = a.parent().children('input')
+					
+				// 	plannerPOI = b.children('h5').text()
+				// 	plannerTime = c.val().trim()
+				// 	plannerAdd = b.children('div').children('h6').text()
+
+				// 	console.log(plannerPOI)
+				// 	console.log(plannerTime)
+				// 	console.log(plannerAdd)
+				// })
+
 		  })	  
 	  })
 	})
