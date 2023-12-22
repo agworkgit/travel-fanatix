@@ -3,30 +3,34 @@ $(document).ready(function () {
     const modalContent = $("#modal-content");
 
 	function createCard(attraction) {
-        const card = $("<div>").addClass("card text-bg-success mx-3 mb-3");
-        const cardHeader = $("<div>").addClass("card-header").text("Ranking: " + attraction.ranking);
-        const cardBody = $("<div>").addClass("card-body");
-        const colDiv = $("<div>").addClass("col-md-4");
-        const title = $("<h5>").addClass("card-title").text(attraction.name);
-        const isOpen = $("<h6>").addClass("card-title").text(attraction.is_closed ? "Closed" : "Open");
-        const content = $("<p>").addClass("card-text").text(attraction.description);
-        const img = $("<img>").attr("src", attraction.photo.images.medium.url)
-            .addClass("card-img-bottom")
-            .css({
-                "object-fit": "cover",
-                "object-position": "center",
-                "height": "10vh", // Set default height
-                "width": "100%" , // Maintain full width
+		const card = $("<div>").addClass("card text-bg-success mx-3 mb-3");
+		const cardHeader = $("<div>").addClass("card-header").text("Ranking: " + attraction.ranking);
+		const cardBody = $("<div>").addClass("card-body");
+		const colDiv = $("<div>").addClass("col-md-4");
+		const title = $("<h5>").addClass("card-title").text(attraction.name);
+		const isOpen = $("<h6>").addClass("card-title").text(attraction.is_closed ? "Closed" : "Open");
+		const content = $("<p>").addClass("card-text").text(attraction.description);
+		const img = $("<img>").attr("src", attraction.photo.images.medium.url)
+			.addClass("card-img-bottom")
+			.css({
+				"object-fit": "cover",
+				"object-position": "center",
+				"height": "10vh", // Set default height
+				"width": "100%", // Maintain full width
 				"border-radius": "5px"
-            })
-            .attr("alt", "Attraction Image");
-
-        colDiv.append(img);
-        cardBody.append(colDiv, title, isOpen, content);
-        card.append(cardHeader, cardBody);
-
-        return card;
-    }
+			})
+			.attr("alt", "Attraction Image");
+	
+		// Create a link for the website
+		const websiteLink = $("<a>").attr("href", attraction.website).attr("target", "_blank").text("Visit Website");
+	
+		colDiv.append(img);
+		cardBody.append(colDiv, title, isOpen, content, websiteLink);
+		card.append(cardHeader, cardBody);
+	
+		return card;
+	}
+	
 
     function handleApiResponse(POIdata) {
         modalContent.empty();
