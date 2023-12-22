@@ -418,4 +418,5 @@ updateLocation();
 //       container.append(cardHtml);
 //     });
 //   }
+
 });
