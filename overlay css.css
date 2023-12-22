@@ -1,28 +1,6 @@
 
-.carousel-item {
-    background-color: lightslategray !important;
-    padding: 20px;
-    transition: none !important;
-}
 
-.carousel-item h5 {
-    color: antiquewhite;
-}
-
-.carousel-item img {
-    margin: 20px;
-}
-
-.carousel-item p {
-    color: antiquewhite;
-    font-size: 15px;
-}
-
-.time-input {
-    margin-bottom: 50px !important;
-}
-
-.hidden {
+  .hidden {
     display: none !important;
   }
 
@@ -36,12 +14,12 @@
     bottom: 0;
     background-color: rgba(0,0,0,0.5); 
     z-index: 2;
-    cursor:wait; 
+    cursor: pointer; 
     display: block;
     color: aliceblue;
   }
 
-  #overlay h5, .plane {
+  #overlay h5, img {
       margin: 0;
       position: absolute;
       left: 50%;
@@ -52,6 +30,6 @@
     top: 50%;
   }
 
-  #overlay .plane {
+  #overlay img {
     top: 40%;
   }
