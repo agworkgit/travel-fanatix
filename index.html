@@ -8,41 +8,42 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <link rel="stylesheet" href="./css/index.css">
+  <link rel="stylesheet" href="./css/modal-carousel-styling.css">
 </head>
 
 <body class="bg-light">
   <!-- navbar -->
   <nav id="navbar" class="navbar my-2">
     <div class="container-fluid">
-        <a class="navbar-brand">Travel Fanatix</a>
-        <form class="d-flex" role="search" id="citySearchForm">
-            <input class="form-control me-3" type="search" placeholder="Enter City" aria-label="Search"
-                id="cityInput">
-            <button class="searchBtn btn btn-outline-primary" type="submit">Search</button>
-        </form>
+      <a class="navbar-brand">Travel Fanatix</a>
+      <form class="d-flex" role="search" id="citySearchForm">
+        <input class="form-control me-2" type="search" placeholder="Enter City" aria-label="Search" id="cityInput">
+        <button id="searchButton" class="searchBtn btn btn-success" type="submit">Search</button>
+      </form>
     </div>
-</nav>
+  </nav>
 
   <div class='page'>
     <!-- hero -->
     <div id="hero" class="container-fluid mb-3">
       <div class="card bg-dark text-white" style="max-height: 30vh;">
-          <img src="https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?q=80&w=2130&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="card-img" alt="Location picture"
-              style="max-height: 30vh; object-fit: cover;" />
-          <div class="card-img-overlay" style="background-color: rgba(0, 0, 0, 0.5)">
-              <h5 class="d-flex align-items-center nav-time fs-5">Time</h5>
-              <h5 class="card-title" data-update="day">Day</h5>
-              <h5 class="card-title" id="location">Location</h5>
-          </div>
-          <div class="card-img-overlay right-info">
-            <h5 class="card-title" id="temperature">Temperature</h5>
-            <h5 class="card-title" id="humidity">Humidity</h5>
-            <h5 class="card-title" id="wind">Wind</h5>
-              <img src="./resources/weather-conditions/foggy_FILL0_wght400_GRAD0_opsz24.svg" class="weather-icon" id="weather-icon"
-                  alt="">
-          </div>
+        <img
+          src="https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?q=80&w=2130&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          class="card-img" alt="Location picture" style="max-height: 30vh; object-fit: cover;" />
+        <div class="card-img-overlay" style="background-color: rgba(0, 0, 0, 0.4)">
+          <h5 class="d-flex align-items-center nav-time fs-5">Time</h5>
+          <h5 class="card-title" data-update="day">Day</h5>
+          <h5 class="card-title" id="location">Location</h5>
+        </div>
+        <div class="card-img-overlay right-info">
+          <h5 class="card-title" id="temperature">Temperature</h5>
+          <h5 class="card-title" id="humidity">Humidity</h5>
+          <h5 class="card-title" id="wind">Wind</h5>
+          <img src="./resources/weather-conditions/foggy_FILL0_wght400_GRAD0_opsz24.svg" class="weather-icon"
+            id="weather-icon" alt="">
+        </div>
       </div>
-  </div>
+    </div>
 
     <!-- bottom section -->
 
@@ -50,7 +51,7 @@
     <div id="checklist" class="container-fluid">
       <div class="row">
         <div class="col-sm-6 mb-3 mb-sm-0">
-          <div class="card">
+          <div class="card text-white bg-dark">
             <div class="card-body">
               <h5 class="card-title">Checklist</h5>
               <p class="card-text border-bottom pb-2">Let's schedule some activities.</p>
@@ -71,101 +72,63 @@
         <!-- recommendations -->
         <div class="col-sm-6">
           <!-- initial recommendations state -->
-          <div id="recommendations-init" class="card mb-3">
+          <div id="recommendations-init" class="card text-white bg-dark mb-3">
             <div class="card-body">
               <h5 class="card-title">Recommendations</h5>
-              <p class="card-text border-bottom pb-2">With supporting text below as a natural lead-in to additional
-                content.</p>
+              <p class="card-text border-bottom pb-2">Feeling uninspired? Check one of our recommendations.</p>
               <!-- modal trigger -->
-              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#recModal">
+              <button id="get-advice" type="button" class="btn btn-primary" data-bs-toggle="modal"
+                data-bs-target="#recModal">
                 Get Advice
               </button>
-
-
-              <!-- Modal -->
-              <div class="modal fade" id="recModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">Choose an activity</h5>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                      <div class="btn-group-vertical w-100" role="group"
-                        aria-label="Vertical radio toggle button group">
-                        <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio1" autocomplete="off"
-                          checked>
-                        <label class="btn btn-outline-primary" for="vbtn-radio1">Restaurants</label>
-                        <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio2" autocomplete="off">
-                        <label class="btn btn-outline-primary" for="vbtn-radio2">Drinks</label>
-                        <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio3" autocomplete="off">
-                        <label class="btn btn-outline-primary" for="vbtn-radio3">Entertainment</label>
-                      </div>
-                    </div>
-                    <div class="modal-footer">
-                      <button id="modal-rec-btn" type="button" class="btn btn-primary">Get Recommendations</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- filled recommendations state -->
-          <div id="recommendation-group" class="card mb-3 hidden">
-            <div class="card-body">
-              <h5 class="card-title">Recommendations</h5>
-              <p class="card-text border-bottom pb-2">With supporting text below as a natural lead-in to additional
-                content.</p>
-            </div>
-
-            <div class="card text-bg-success mx-3 mb-3">
-              <div class="card-header">Ranking</div>
-              <div class="card-body">
-                <div class="col-md-4">
-                </div>
-                <h5 class="card-title">Hotel</h5>
-                <h6 class="card-title">Open?</h6>
-                <p class="card-text">Content</p>
-              </div>
-              <img
-                src="https://images.unsplash.com/photo-1529655683826-aba9b3e77383?q=80&w=2130&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                height="100vh" class="card-img-bottom" style="object-fit: cover; object-position: center" alt="...">
             </div>
 
           </div>
         </div>
-
       </div>
-    </div>
-  </div>
 
-  <!-- footer -->
-  <div class="container">
-    <footer class="py-5">
-      <div class="row">
-  
-      <div class="d-flex flex-column flex-sm-row justify-content-center py-4 my-4 border-top">
-        <p>© 2023 Travel Fanatix Team</p>
+      <!-- Modal Adam Carousel-->
+      <div class="modal fade" id="recModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content text-white bg-dark">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Attractions in the City</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="modal-content">
+              <!-- Attractions will be added here dynamically -->
+            </div>
+          </div>
+        </div>
       </div>
-    </footer>
-  </div>
 
-  <!-- Bootstrap Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
-    integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
-    crossorigin="anonymous"></script>
-  <!-- DayJS Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/dayjs@1.10.6"></script>
-  <!-- jQuery Scripts-->
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
-    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-  <!-- Our Scripts -->
-  <script src="./scripts/index.js"></script>
+      <!-- footer -->
+      <div class="container">
+        <footer class="py-5">
+          <div class="row">
+
+            <div class="d-flex flex-column flex-sm-row justify-content-center py-4 my-4 border-top">
+              <p>© 2023 Travel Fanatix Team</p>
+            </div>
+        </footer>
+      </div>
+
+      <!-- Bootstrap Scripts -->
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
+      <!-- DayJS Scripts -->
+      <script src="https://cdn.jsdelivr.net/npm/dayjs@1.10.6"></script>
+      <!-- jQuery Scripts-->
+      <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+      <!-- Our Scripts -->
+      <script src="./scripts/index.js"></script>
+      <!-- adam carousel -->
+      <script src="./scripts/carousel-logic.js"></script>
 </body>
 
 </html>
