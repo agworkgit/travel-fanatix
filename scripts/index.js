@@ -152,7 +152,14 @@ const windElement = document.getElementById('wind');
 const iconElement = document.getElementById('weather-icon');
 
 function updateWeatherData(latitude, longitude, cityInput) {
-  const locationQuery = cityInput ? `q=${cityInput}` : `lat=${latitude}&lon=${longitude}`;
+  let locationQuery;
+
+  if (cityInput) {
+    locationQuery = 'q=' + encodeURIComponent(cityInput);
+  } else {
+    locationQuery = 'lat=' + latitude + '&lon=' + longitude;
+  }
+
   const apiUrl = `https://api.openweathermap.org/data/2.5/weather?${locationQuery}&appid=${apiKey}&units=metric`;
 
   // Make a request to the OpenWeather API
@@ -160,6 +167,8 @@ function updateWeatherData(latitude, longitude, cityInput) {
     .then(response => response.json())
     .then(data => {
       // Update HTML content with the received data
+      console.log(data); // Add this line to log the data to the console for debugging
+
       temperatureElement.innerHTML = `Temperature: ${data.main.temp} °C`;
       humidityElement.innerHTML = `Humidity: ${data.main.humidity}%`;
       windElement.innerHTML = `Wind: ${data.wind.speed} m/s`;
