@@ -173,7 +173,6 @@ submitBtn.on('click', function(event) {
 
 					$('#calendarList').append(poiItem, poiAdd);	
 
-
 				})
 			})
 
