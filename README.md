@@ -1,19 +1,40 @@
-# edx-project-1
+# Travel Fanatix Daily Planner
 
-## User Story:
-We want to make a weekly travel planner that makes travelling easier for the user.
-It would ideally include the current weather of the destination, landmarks or tourist attraction sites and some hotel options.
-This would result in an all in one itinerary for the user.
+## Description
 
-## Acceptance criteria:
-When the user opens the planner they will be subjected to a modal (what should the modal do?)
-The planner should display a 7-day calendar.
-The time and date should be shown using the day(js) library.
-When the planner is loaded, the current day on the calendar should be shown on the main screen where the user will be able to see all imputed data.
-The user will be able to select other days via scrolling or dropdown.
-Each day on the calendar should be displayed as a dropdown.
-Implement a trip API to provide suggestions on activities, events, and/or attractions.
-The weather conditions implemented using an API should ensure that it is up to date.
-The user should be able to schedule their planned activities in the text area provided.
-The application should be responsive and accessible. 
-The data should be saved to local storage.
+Have you ever tried to plan your day in a foreign city and been unsure where to start? The Travel Fanatix daily travel planner allows you to create and organise a schedule of activities for your day.
+
+The travel planner will provide you with five recommended points of interest, along with the corresponding address, description and its rank on TripAdvisor. If the point of interest is something you want to see, add it to your planner with the press of a button!
+
+## URL
+
+
+
+## APIs
+
+- DayJS - provides date and time functionality to the application
+- Tourist Attraction - provides all the information on POIs in the city of your choosing
+- OpenWeather - provides up-to-date weather information to the application
+- Unsplash - provides stock imagery that compliments the city of choice
+
+## Installation
+
+N/A
+
+## Usage
+
+The application will locate itself in your current city using geolocation, displaying the current time, weather and a stock photo of that city.
+
+If you want to change the city that the application is focusing on, simply input the new city into the search box, click search and then the Tourist Attraction API will provide the application with all-new location data.
+
+The planner takes up the bottom-left portion of the application. It has functionality to add events to your planner manually, inputting the activity you're planning to do, and the time you plan to do it. 
+
+However, if you'd like some suggestions for things to do in your city, click the button in the bottom-right portion of the application. That will open a modal containing a carousel of Points of Interest, complete with their TripAdvisor ranking, the address, and a brief description of the POI.
+
+The modal will also provide you with the ability to add the event - as well as the time you wish to do it - directly to your planner with the click of a button! Refresh the page, and you'll see that your changes have been saved to local storage.
+
+## Credit
+
+## Licence
+
+MIT
