@@ -165,15 +165,13 @@ submitBtn.on('click', function(event) {
 					console.log(plannerPOI)
 					console.log(plannerTime)
 					console.log(plannerAdd)
-
-					// adding to Adams html file
 					
 					const poiItem = $('<li>').text(plannerTime + ': ' + plannerPOI);
 					const poiAdd = $('<p>').text(plannerAdd);
 
 					$('#calendarList').append(poiItem, poiAdd);	
 
-					
+
 
 				})
 			})
