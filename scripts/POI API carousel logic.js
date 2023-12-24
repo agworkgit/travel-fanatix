@@ -124,29 +124,10 @@ submitBtn.on('click', function(event) {
 				carouselContent.append(carouselItem)
 
 				console.log(POIdata);
-				poiNames.push(POIname);
-
-				// adding functionality to the save to btn button -Amaal
-				// const calendarBtn = $('.saveButton');
-
-				// $(document).ready(function () {
-				// 	calendarBtn.on('click', function () {
-
-				// 		// const carouselID = $('#carouselID');
-
-				// 		const itemName = POIname;
-				// 		console.log(itemName);
-
-				// 		const listItem = $('<li>').text(itemName);
-
-				// 		$('#calendarList').append(listItem);
-
-				// 	})
-				// })
 
 			}
 
-			
+			// cal btn for Adam's POI
 			const calendarBtn = $('.saveButton');
 
 			$(document).ready(function () {
@@ -169,30 +150,12 @@ submitBtn.on('click', function(event) {
 					const poiItem = $('<li>').text(plannerTime + ': ' + plannerPOI);
 					const poiAdd = $('<p>').text(plannerAdd);
 
-					$('#calendarList').append(poiItem, poiAdd);	
-
-
+					$('#time-input').val(plannerTime);
+					$('#activity-input').val(plannerPOI);
+					$('#add-activity').trigger('click');
 
 				})
 			})
-
-		
-
-				// $('.saveButton').on('click', function(event) {
-				// 	event.preventDefault();
-				
-				// 	a = $(this)
-				// 	b = a.parent().parent()
-				// 	c = a.parent().children('input')
-					
-				// 	plannerPOI = b.children('h5').text()
-				// 	plannerTime = c.val().trim()
-				// 	plannerAdd = b.children('div').children('h6').text()
-
-				// 	console.log(plannerPOI)
-				// 	console.log(plannerTime)
-				// 	console.log(plannerAdd)
-				// })
 
 		  })	  
 	  })
