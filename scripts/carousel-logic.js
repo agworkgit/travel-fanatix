@@ -24,11 +24,11 @@ $(document).ready(function () {
 		// Create a link for the website
 		const websiteLink = $("<a>").attr("href", attraction.website).attr("target", "_blank").text("Visit Website");
         
-        const timeInput2 = $('<input>');
+        var timeInput2 = $('<input>');
 		timeInput2.addClass('time-input');
 		timeInput2.attr('placeholder', '13:00');
 
-        const saveButton2 = $('<button>');
+        var saveButton2 = $('<button>');
 		saveButton2.addClass('btn primary-btn saveButton');
 		saveButton2.text('Save to Planner');
 
