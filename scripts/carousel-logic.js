@@ -35,9 +35,8 @@ $(document).ready(function () {
         saveButton2.on('click', function () {
 
             const time = timeInput2.val().trim();
-            console.log(time);
-
             const locationTitle = title.text();
+            console.log(time);
             console.log(locationTitle);
 
             $('#time-input').val(time);
