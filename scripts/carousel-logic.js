@@ -23,9 +23,30 @@ $(document).ready(function () {
 	
 		// Create a link for the website
 		const websiteLink = $("<a>").attr("href", attraction.website).attr("target", "_blank").text("Visit Website");
+        
+        var timeInput2 = $('<input>');
+		timeInput2.addClass('time-input');
+		timeInput2.attr('placeholder', '13:00');
+
+        var saveButton2 = $('<button>');
+		saveButton2.addClass('btn primary-btn saveButton');
+		saveButton2.text('Save to Planner');
+
+        saveButton2.on('click', function () {
+
+            const time = timeInput2.val().trim();
+            const locationTitle = title.text();
+            console.log(time);
+            console.log(locationTitle);
+
+            $('#time-input').val(time);
+			$('#activity-input').val(locationTitle);
+			$('#add-activity').trigger('click');
+
+        });
 	
 		colDiv.append(img);
-		cardBody.append(colDiv, title, isOpen, content, websiteLink);
+		cardBody.append(colDiv, title, isOpen, content, websiteLink, timeInput2, saveButton2);
 		card.append(cardHeader, cardBody);
 	
 		return card;
@@ -104,3 +125,4 @@ $(document).ready(function () {
             });
     });
 });
+
