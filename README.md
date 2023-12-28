@@ -2,13 +2,17 @@
 
 ## Description
 
-Have you ever tried to plan your day in a foreign city and been unsure where to start? The Travel Fanatix daily travel planner allows you to create and organise a schedule of activities for your day.
+Have you ever tried to plan your day in a foreign city and been unsure where to start? 
 
-The travel planner will provide you with five recommended points of interest, along with the corresponding address, description and its rank on TripAdvisor. If the point of interest is something you want to see, add it to your planner with the press of a button!
+The Travel Fanatix daily travel planner allows you to create and organise a schedule of activities for your day.
+
+The travel planner will provide you with five recommended points of interest, along with the corresponding address, description and its rank on TripAdvisor. 
+
+If the point of interest is something you want to see, add it to your planner with the press of a button!
 
 ## URL
 
-
+Check the deployed web app at the following link <https://agworkgit.github.io/edx-project-1/>
 
 ## APIs
 
@@ -19,7 +23,7 @@ The travel planner will provide you with five recommended points of interest, al
 
 ## Installation
 
-N/A
+Installation not required, use the deployed link listed under Usage.
 
 ## Usage
 
@@ -33,8 +37,53 @@ However, if you'd like some suggestions for things to do in your city, click the
 
 The modal will also provide you with the ability to add the event - as well as the time you wish to do it - directly to your planner with the click of a button! Refresh the page, and you'll see that your changes have been saved to local storage.
 
+The following image shows the web application's appearance and functionality:
+
+![This web app is built with the use of HTML, CSS, Bootstrap, JS and APIs.](./resources/images/edx-project-1-demo.gif)
+
+> **Note**: This layout is designed to be responsive and will change appearence based on time of day (day/night).
+
 ## Credit
+
+Alex Grigore - Tech Lead, Design, User Interface, User Experience, APIs
+
+Adam Blampied - APIs, User Experience, Documentation
+
+Matthew Lightfoot - APIs, User Experience, User Interface
+
+Amaal Abdulle - User Experience, Documentation
 
 ## Licence
 
-MIT
+MIT License
+
+Copyright (c) 2023 Alex Grigore, Adam Blampied, Matthew Lightfoot, Amaal Abdulle
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+## Badges
+
+![edX](https://img.shields.io/badge/edX-%2302262B.svg?style=for-the-badge&logo=edX&logoColor=white)
+![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
+![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white)
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+![Bootstrap](https://img.shields.io/badge/bootstrap-%238511FA.svg?style=for-the-badge&logo=bootstrap&logoColor=white)
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![jQuery](https://img.shields.io/badge/jquery-%230769AD.svg?style=for-the-badge&logo=jquery&logoColor=white)
