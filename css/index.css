@@ -6,17 +6,44 @@ body {
     background-attachment: fixed;
 }
 
+textarea, :focus {
+    outline: none;
+}
+
+textarea:focus, 
+textarea.form-control:focus, 
+input.form-control:focus, 
+button.btn:focus, 
+button.btn:active, 
+input[type=text]:focus, 
+input[type=password]:focus, 
+input[type=email]:focus, 
+input[type=number]:focus, 
+[type=text].form-control:focus, 
+[type=password].form-control:focus, 
+[type=email].form-control:focus, 
+[type=tel].form-control:focus, 
+[contenteditable].form-control:focus {
+  box-shadow: none !important;
+    outline: none !important;
+}
+
+textarea {
+    resize: none;
+}
+
+/* alex made change */
 .navbar-brand {
-    font-family: 'Inter Tight', sans-serif;
+    /* font-family: 'Inter Tight', sans-serif;
     font-weight: 900;
-    font-style: italic;
+    font-style: italic; */
     font-size: 24px;
-    background-color: #227b36;
+    /* background-color: #227b36; */
     border-radius: 5px;
-    padding-inline: 10px;
-    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.15);
-    border: 1px solid #0c7723;
-    color: white;
+    /* padding-inline: 10px; */
+    /* box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.15); */
+    /* border: 1px solid #0c7723; */
+    /* color: white; */
 }
 
 .navbar-brand:hover {
@@ -27,20 +54,24 @@ body {
     height: 30vh;
     width: 100vw;
     object-fit: cover;
+    object-position: center;
     /* filter: brightness(60%); */
+    border: none !important;
 }
 
 .hero {
-    border-radius: 0px 0px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
     overflow: hidden;
+    border: none !important;
 }
 
 .card-img-overlay {
     height: 30vh;
+    border: none !important;
 }
 
-textarea {
-    resize: none;
+.top-dash {
+    border: 0px solid rgb(0, 0, 0) !important;  
 }
 
 .right-info {
@@ -69,6 +100,67 @@ textarea {
     color: white;
 }
 
-/* .modal-title {
-    color: black;
-} */
+#cityInput {
+    border: 1px solid rgb(255, 255, 255);  
+}
+
+.time-input {
+    padding: 2%;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 5px;
+}
+
+.time-input:focus {
+    border: 1px solid rgb(255, 255, 255);
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.saveButton {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    background-color: rgba(0, 76, 255, 1);
+    border: 1px solid rgb(255, 255, 255);
+    padding: 2%;
+    border-radius: 5px;
+}
+
+.saveButton:hover {
+    color: rgba(255, 255, 255);
+    background-color: rgb(0, 30, 255);
+    border: 1px solid rgb(255, 255, 255);
+}
+
+.booking-link {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    background-color: rgba(0, 76, 255, 1);
+    border: 1px solid rgb(255, 255, 255);
+    padding: 2.5%;
+    border-radius: 5px;
+}
+
+.booking-link:hover {
+    color: rgba(255, 255, 255);
+    background-color: rgb(0, 30, 255);
+    border: 1px solid rgb(255, 255, 255);
+}
+
+.day-border {
+    border-top: 1px dotted black !important;
+}
+
+#loading-modal .modal-content {
+    background-color: #343a40; /* Dark background color */
+    color: #ffffff; /* Light text color */
+  }
+
+/* Widescreen Layout Adjustment */
+@media screen and (min-width: 1200px) {
+    .page {
+        width: 60%;
+        margin: 0 auto;
+    }
+}

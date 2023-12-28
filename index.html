@@ -1,40 +1,45 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Travel Fanatix</title>
+  <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <!-- Custom CSS -->
   <link rel="stylesheet" href="./css/index.css">
   <link rel="stylesheet" href="./css/modal-carousel-styling.css">
 </head>
 
 <body class="bg-light">
-  <!-- navbar -->
-  <nav id="navbar" class="navbar my-2">
-    <div class="container-fluid">
-      <a class="navbar-brand">Travel Fanatix</a>
-      <form class="d-flex" role="search" id="citySearchForm">
-        <input class="form-control me-2" type="search" placeholder="Enter City" aria-label="Search" id="cityInput">
-        <button id="searchButton" class="searchBtn btn btn-success" type="submit">Search</button>
-      </form>
-    </div>
-  </nav>
-
   <div class='page'>
-    <!-- hero -->
+    <!-- Navbar -->
+    <nav id="navbar" class="navbar my-2">
+      <div class="container-fluid">
+        <a class="navbar-brand day-icon hidden"><img src="./resources/icon/tf-logo.svg" alt=""></a>
+        <a class="navbar-brand nite-icon hidden"><img src="./resources/icon/tf-logo-nite.svg" alt=""></a>
+        <form class="d-flex" role="search" id="citySearchForm">
+          <input class="form-control me-2" type="search" placeholder="Enter City" aria-label="Search" id="cityInput">
+          <button id="searchButton" class="searchBtn btn btn-success" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
     <div id="hero" class="container-fluid mb-3">
-      <div class="card bg-dark text-white" style="max-height: 30vh;">
-        <img
-          src="https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?q=80&w=2130&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      <div class="card bg-dark text-white top-dash" style="max-height: 30vh;">
+        <!-- Background Image -->
+        <img src="./resources/images/daniel-ramirez-q4TfWtnz_xw-unsplash.jpg"
           class="card-img" alt="Location picture" style="max-height: 30vh; object-fit: cover;" />
-        <div class="card-img-overlay" style="background-color: rgba(0, 0, 0, 0.4)">
+        <!-- Overlay Content -->
+        <div class="card-img-overlay" style="background-color: rgba(0, 0, 0, 0.4);">
           <h5 class="d-flex align-items-center nav-time fs-5">Time</h5>
           <h5 class="card-title" data-update="day">Day</h5>
           <h5 class="card-title" id="location">Location</h5>
         </div>
+        <!-- Additional Info -->
         <div class="card-img-overlay right-info">
           <h5 class="card-title" id="temperature">Temperature</h5>
           <h5 class="card-title" id="humidity">Humidity</h5>
@@ -45,15 +50,30 @@
       </div>
     </div>
 
-    <!-- bottom section -->
+    <!-- Bottom Section -->
 
-    <!-- checklist -->
+    <!-- Checklist Section -->
     <div id="checklist" class="container-fluid">
       <div class="row">
+        <!-- Recommendations Section -->
+        <div class="col-sm-6">
+          <div id="recommendations-init" class="card text-white bg-dark mb-3">
+            <div class="card-body">
+              <h5 class="card-title">Recommendations</h5>
+              <p class="card-text border-bottom pb-2">Feeling uninspired? Check one of our recommendations.</p>
+              <button id="get-advice" type="button" class="btn btn-primary" data-bs-toggle="modal"
+                data-bs-target="#recModal">
+                Get Advice
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Day Planner Section -->
         <div class="col-sm-6 mb-3 mb-sm-0">
           <div class="card text-white bg-dark">
             <div class="card-body">
-              <h5 class="card-title">Checklist</h5>
+              <h5 class="card-title">Day Planner</h5>
               <p class="card-text border-bottom pb-2">Let's schedule some activities.</p>
               <div id="checklist-input" class="input-group">
                 <input id="time-input" type="text" class="form-control w-25" placeholder="Time" aria-label="Time"
@@ -62,156 +82,86 @@
                   aria-label="Type Activity" aria-describedby="button-addon2">
                 <button id="add-activity" class="btn btn-primary w-25" type="button">Add</button>
               </div>
-              <!-- Initial state: Hide checklist-output -->
               <div id="checklist-output-container"></div>
             </div>
           </div>
         </div>
-
-
-        <!-- recommendations -->
-        <div class="col-sm-6">
-          <!-- initial recommendations state -->
-          <div id="recommendations-init" class="card text-white bg-dark mb-3">
-            <div class="card-body">
-              <h5 class="card-title">Recommendations</h5>
-              <p class="card-text border-bottom pb-2">Feeling uninspired? Check one of our recommendations.</p>
-              <!-- modal trigger -->
-              <button id="get-advice" type="button" class="btn btn-primary" data-bs-toggle="modal"
-                data-bs-target="#recModal">
-                Get Advice
-              </button>
-            </div>
-
-          </div>
-        </div>
       </div>
 
-      <!-- Modal Adam Carousel-->
+      <!-- Recommendations Modal -->
       <div class="modal fade" id="recModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content text-white bg-dark">
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel">Attractions in the City</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                aria-label="Close"></button>
             </div>
             <div class="modal-body" id="modal-content">
-              <!-- Attractions will be added here dynamically -->
-              
+              <!-- Loading Modal -->
+              <div class="modal" id="loading-modal" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content text-center">
+                    <div class="modal-body">
+                      <div class="spinner-border" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                      </div>
+                      <p>Loading...</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-
-      <!-- Modal Matt Search button -->
+      <!-- City Not Found Modal -->
       <div class="modal searchBtnModal" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog" role="document">
-          <div class="modal-content">
+          <div class="modal-content text-white bg-dark">
             <div class="modal-header">
-              <h5 class="modal-title text-black">City not found</h5>
-              <button type="button" class="btn close" data-dismiss="modal" aria-label="Close"></button>
+              <h5 class="modal-title text-white">City not found</h5>
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                aria-label="Close"></button>
             </div>
-            <div class="modal-body text-black">
+            <div class="modal-body">
               <p>Please check your spelling</p>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary closeSearchBtnModal" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary closeSearchBtnModal" data-dismiss="modal">Close</button>
             </div>
           </div>
         </div>
       </div>
 
-
-      <!--Adam's original Carousel Modal-->
-  <!--Change city input-->
-  
-  <form id="search-form" class="form">
-    <div class="form-inline form-group">
-      <div class="input-group">
-        <input class="form-input city-search" type="text" id="search-input" placeholder="Choose a City"
-          aria-labelledby="form-heading" aria-controls="today forecast" />
-        <div class="input-group-append">
-          <button type="submit" class="btn primary-btn search-button" id="search-button" aria-label="submit search">
-            Submit
-          </button>
-        </div>
-      </div>
-    </div>
-  </form>
-  
-
-  <div class="container text-center">
-    <!-- Large modal -->
-    <button id="getPOIButton" class="btn btn-default" data-toggle="modal" data-target=".bs-example-modal-lg">Get POI Suggestions</button>
-    
-    <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                <ol class="carousel-indicators">
-                  <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                  <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                  <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                  <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-                  <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
-                </ol>
-                <div id= "carousel-inner" class="carousel-inner">
-                  
-                </div>
-                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="sr-only">Next</span>
-                </a>
-              </div>
-            </div>
-        </div>
-    </div>
-  </div>
-
-    <div id='overlay' class="hidden">
-      <img src="./resources/icon/icons8-airplane-50.png" class="plane">
-      <div id="overlayText"></div>
-    </div>
-
-      <!-- footer -->
+      <!-- Footer Section -->
       <div class="container">
         <footer class="py-5">
           <div class="row">
-
-            <div class="d-flex flex-column flex-sm-row justify-content-center py-4 my-4 border-top">
+            <div class="d-flex flex-column flex-sm-row justify-content-center py-4 my-4 border-top footer-border day-border">
               <p>© 2023 Travel Fanatix Team</p>
             </div>
+          </div>
         </footer>
       </div>
 
-
-      <!-- Adam's scripts -->
-      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-      <!-- Bootstrap Scripts -->
+      <!-- JavaScript Libraries -->
+      <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
       <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
         crossorigin="anonymous"></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
         integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
         crossorigin="anonymous"></script>
-      <!-- DayJS Scripts -->
       <script src="https://cdn.jsdelivr.net/npm/dayjs@1.10.6"></script>
-      <!-- jQuery Scripts-->
-      <script src="https://code.jquery.com/jquery-3.7.1.min.js"
-        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-      <!-- Our Scripts -->
+      <!-- Custom Scripts -->
       <script src="./scripts/index.js"></script>
-      <!-- Adam's carousel -->
       <script src="./scripts/carousel-logic.js"></script>
       <script src="./scripts/POI API carousel logic.js"></script>
->>>>>>> 1189ceea9d26c8f2188ffb4b6f23b5cfdb667df3
+    </div>
+  </div>
 </body>
 
 </html>
