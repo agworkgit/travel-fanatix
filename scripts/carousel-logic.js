@@ -4,34 +4,146 @@ $(document).ready(function () {
     var modalContent = $("#modal-content");
     var loadingModal = $("#loading-modal");
     var errorModal = $("#error-modal");
+    var carouselInner = $(".carousel-inner");
+
   
     // Function to create a card for each attraction
-    function createCard(attraction) {
-      var card = $("<div>").addClass("card text-bg-success mx-3 mb-3");
-      var cardHeader = $("<div>")
-        .addClass("card-header")
-        .text("Ranking: " + attraction.ranking);
-      var cardBody = $("<div>").addClass("card-body");
-      var colDiv = $("<div>").addClass("col-md-12 col-lg-12");
-      var title = $("<h5>").addClass("card-title").text(attraction.name);
-      var isOpen = $("<h6>")
-        .addClass("card-title")
-        .text(attraction.is_closed ? "Closed" : "Open");
-      var content = $("<p>").addClass("card-text").text(attraction.description);
-      var img = $("<img>")
+    // function createCard(attraction) {
+    //   var card = $("<div>").addClass("card text-bg-success mx-3 mb-3");
+    //   var cardHeader = $("<div>")
+    //     .addClass("card-header")
+    //     .text("Ranking: " + attraction.ranking);
+    //   var cardBody = $("<div>").addClass("card-body");
+    //   var colDiv = $("<div>").addClass("col-md-12 col-lg-12");
+    //   var title = $("<h5>").addClass("card-title").text(attraction.name);
+    //   var isOpen = $("<h6>")
+    //     .addClass("card-title")
+    //     .text(attraction.is_closed ? "Closed" : "Open");
+    //   var content = $("<p>").addClass("card-text").text(attraction.description);
+    //   var img = $("<img>")
+    //     .attr("src", attraction.photo.images.medium.url)
+    //     .addClass("card-img-bottom mb-3")
+    //     .css({
+    //       "object-fit": "cover",
+    //       "object-position": "center",
+    //       height: "15vh", // Set default height
+    //       width: "100%", // Maintain full width
+    //       "border-radius": "5px",
+    //     })
+    //     .attr("alt", "Attraction Image");
+    //   var carouselItem = $("<div>").addClass("carousel-item");
+  
+    //   // Create an input group for the "Book Visit" link, time input, and "Save to Planner" button
+    //   var inputGroup = $("<div>").addClass("input-group mb-3");
+  
+    //   // "Book Visit" link
+    //   var websiteLink = $("<a>")
+    //     .addClass("booking-link btn btn-secondary")
+    //     .attr("href", attraction.website)
+    //     .attr("target", "_blank")
+    //     .text("Book Visit");
+  
+    //   // Time input
+    //   var timeInput2 = $("<input>")
+    //     .addClass("form-control time-input")
+    //     .attr("placeholder", "When will you visit?")
+    //     .attr("aria-label", "When will you visit?")
+    //     .attr("aria-describedby", "button-addon2");
+  
+    //   // "Save to Planner" button
+    //   var saveButton2 = $("<button>")
+    //     .addClass("btn primary-btn saveButton")
+    //     .attr("type", "button")
+    //     .attr("id", "button-addon2")
+    //     .text("Save to Planner");
+  
+    //   saveButton2.on("click", function () {
+    //     var time = timeInput2.val().trim();
+    //     var locationTitle = title.text();
+    //     console.log(time);
+    //     console.log(locationTitle);
+  
+    //     $("#time-input").val(time);
+    //     $("#activity-input").val(locationTitle);
+    //     $("#add-activity").trigger("click");
+    //   });
+  
+    //   inputGroup.append(websiteLink, timeInput2, saveButton2);
+  
+    //   colDiv.append(img);
+    //   cardBody.append(colDiv, title, isOpen, content, inputGroup);
+    //   card.append(cardHeader, cardBody);
+    //   carouselItem.append(card);
+
+    // //   return card;
+    //   return carouselItem;
+    // }
+  
+    // Function to show the loading modal
+    function showLoadingModal() {
+      loadingModal.modal("show");
+    }
+  
+    // Function to hide the loading modal
+    function hideLoadingModal() {
+      loadingModal.modal("hide");
+    }
+  
+    // Function to show an error modal with a specific message
+    function showErrorModal(message) {
+      $("#error-message").text(message);
+      errorModal.modal("show");
+    }
+    // Function to handle the API response and update the modal content
+    function handleApiResponse(POIdata) {
+      hideLoadingModal();
+
+      modalContent.empty();
+      if (POIdata.results && POIdata.results.data) {
+        var sortedAttractions = POIdata.results.data.sort(
+          function (a, b) {
+            return a.ranking - b.ranking;
+          }
+        );
+        sortedAttractions.slice(0, 5).forEach(function (attraction, index) {
+        //   var card = createCard(attraction);
+        var card = carouselItem(attraction, index);
+        //   modalContent.append(card);
+        carouselInner.append(card);
+        });
+        $("#recModal").modal("show");
+      } else {
+        showErrorModal("No data available for the selected city.");
+      }
+    }
+
+    function carouselItem(attraction, index) {
+        var card = $("<div>").addClass("card text-bg-success mx-3 mb-3");
+        var cardHeader = $("<div>")
+          .addClass("card-header")
+          .text("Ranking: " + attraction.ranking);
+        var cardBody = $("<div>").addClass("card-body");
+        var colDiv = $("<div>").addClass("col-md-12 col-lg-12");
+        var title = $("<h5>").addClass("card-title").text(attraction.name);
+        var isOpen = $("<h6>")
+          .addClass("card-title")
+          .text(attraction.is_closed ? "Closed" : "Open");
+        var content = $("<p>").addClass("card-text").text(attraction.description);
+        var carouselImg = $("<img>")
+        .addClass("d-block w-100")
         .attr("src", attraction.photo.images.medium.url)
-        .addClass("card-img-bottom mb-3")
         .css({
-          "object-fit": "cover",
-          "object-position": "center",
-          height: "15vh", // Set default height
+          height: "100px", // Set default height
           width: "100%", // Maintain full width
           "border-radius": "5px",
         })
         .attr("alt", "Attraction Image");
-  
-      // Create an input group for the "Book Visit" link, time input, and "Save to Planner" button
-      var inputGroup = $("<div>").addClass("input-group mb-3");
+        var carItemEl = $("<div>").addClass("carousel-item")
+        if(index === 0){
+            carItemEl.addClass("active")
+        }
+
+        var inputGroup = $("<div>").addClass("input-group mb-3");
   
       // "Book Visit" link
       var websiteLink = $("<a>")
@@ -65,50 +177,14 @@ $(document).ready(function () {
         $("#add-activity").trigger("click");
       });
   
-      inputGroup.append(websiteLink, timeInput2, saveButton2);
-  
-      colDiv.append(img);
-      cardBody.append(colDiv, title, isOpen, content, inputGroup);
-      card.append(cardHeader, cardBody);
-  
-      return card;
-    }
-  
-    // Function to show the loading modal
-    function showLoadingModal() {
-      loadingModal.modal("show");
-    }
-  
-    // Function to hide the loading modal
-    function hideLoadingModal() {
-      loadingModal.modal("hide");
-    }
-  
-    // Function to show an error modal with a specific message
-    function showErrorModal(message) {
-      $("#error-message").text(message);
-      errorModal.modal("show");
-    }
-  
-    // Function to handle the API response and update the modal content
-    function handleApiResponse(POIdata) {
-      hideLoadingModal();
-  
-      modalContent.empty();
-      if (POIdata.results && POIdata.results.data) {
-        var sortedAttractions = POIdata.results.data.sort(
-          function (a, b) {
-            return a.ranking - b.ranking;
-          }
-        );
-        sortedAttractions.slice(0, 5).forEach(function (attraction) {
-          var card = createCard(attraction);
-          modalContent.append(card);
-        });
-        $("#recModal").modal("show");
-      } else {
-        showErrorModal("No data available for the selected city.");
-      }
+        inputGroup.append(websiteLink, timeInput2, saveButton2);
+
+        colDiv.append(carouselImg);
+        cardBody.append(colDiv, title, isOpen, content, inputGroup);
+        card.append(cardHeader, cardBody)
+        carItemEl.append(card);
+
+        return carItemEl
     }
   
     // Function to fetch attractions based on the city search

@@ -1,5 +1,9 @@
 // Function to update the time using Day.js
 $(document).ready(function () {
+
+  // manually controlling the slide
+  var currentSlide = 0;
+
   // Function to update the time display
   function updateTime() {
     var currentTime = dayjs().format("HH:mm");
@@ -383,3 +387,4 @@ $(document).ready(function () {
   // Call the function to update location on page load
   updateLocation();
 });
+

@@ -10,7 +10,7 @@
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <!-- Custom CSS -->
   <link rel="stylesheet" href="./css/index.css">
-  <link rel="stylesheet" href="./css/modal-carousel-styling.css">
+  <!-- <link rel="stylesheet" href="./css/modal-carousel-styling.css"> -->
 </head>
 
 <body class="bg-light">
@@ -68,9 +68,10 @@
             </div>
           </div>
         </div>
+  
 
-        <!-- Day Planner Section -->
-        <div class="col-sm-6 mb-3 mb-sm-0">
+      <!-- Day Planner Section -->
+      <div class="col-sm-6 mb-3 mb-sm-0">
           <div class="card text-white bg-dark">
             <div class="card-body">
               <h5 class="card-title">Day Planner</h5>
@@ -89,7 +90,7 @@
       </div>
 
       <!-- Recommendations Modal -->
-      <div class="modal fade" id="recModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <!-- <div class="modal fade" id="recModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content text-white bg-dark">
             <div class="modal-header">
@@ -98,8 +99,9 @@
                 aria-label="Close"></button>
             </div>
             <div class="modal-body" id="modal-content">
+              
               <!-- Loading Modal -->
-              <div class="modal" id="loading-modal" tabindex="-1" role="dialog" aria-hidden="true">
+             <!--<div class="modal" id="loading-modal" tabindex="-1" role="dialog" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                   <div class="modal-content text-center">
                     <div class="modal-body">
@@ -114,7 +116,43 @@
             </div>
           </div>
         </div>
+      </div> -->
+
+      <!-- Carousel and Modal -->
+      <div class="modal fade" id="recModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content text-white bg-dark">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Attractions in the City</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="carouselInModal" class="carousel slide">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carouselInModal" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#carouselInModal" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#carouselInModal" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                            <button type="button" data-bs-target="#carouselInModal" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                            <button type="button" data-bs-target="#carouselInModal" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <!-- attractions will be added here -->
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselInModal" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselInModal" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
       </div>
+  
+
 
       <!-- City Not Found Modal -->
       <div class="modal searchBtnModal" tabindex="-1" role="dialog" aria-hidden="true">
@@ -135,6 +173,7 @@
         </div>
       </div>
 
+      
       <!-- Footer Section -->
       <div class="container">
         <footer class="py-5">
