@@ -250,11 +250,10 @@ $(document).ready(function () {
     getAdviceBtn.on("click", function () {
       var citySearch = $("#cityInput").val().trim();
   
-      if (!citySearch) {
-        showErrorModal("Please enter a city before getting advice.");
-        return;
+      if (citySearch === "") {
+        citySearch = $('#location').text();
       }
-  
+      console.log(citySearch);
       carouselInner.empty();
       getAttractions(citySearch);
     });
