@@ -99,25 +99,6 @@
                 aria-label="Close"></button>
             </div>
             <div class="modal-body" id="modal-content">
-              
-              <!-- Loading Modal -->
-             <!--<div class="modal" id="loading-modal" tabindex="-1" role="dialog" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content text-center">
-                    <div class="modal-body">
-                      <div class="spinner-border" role="status">
-                        <span class="visually-hidden">Loading...</span>
-                      </div>
-                      <p>Loading...</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> -->
-
       
       <!-- Carousel and Modal -->
       <div class="modal fade" id="recModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -137,6 +118,18 @@
                             <button type="button" data-bs-target="#carouselInModal" data-bs-slide-to="4" aria-label="Slide 5"></button>
                         </div>
                         <div class="carousel-inner">
+                          <div class="modal" id="loading-modal" tabindex="-1" role="dialog" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                              <div class="modal-content text-center">
+                                <div class="modal-body">
+                                  <div class="spinner-border" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                  </div>
+                                  <p>Loading...</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
                             <!-- attractions will be added here -->
                         </div>
                         <button class="carousel-control-prev" type="button" data-bs-target="#carouselInModal" data-bs-slide="prev">
@@ -153,7 +146,6 @@
         </div>
       </div>
   
-
 
       <!-- City Not Found Modal -->
       <div class="modal searchBtnModal" tabindex="-1" role="dialog" aria-hidden="true">
