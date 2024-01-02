@@ -105,7 +105,9 @@ $(document).ready(function () {
             return a.ranking - b.ranking;
           }
         );
-        sortedAttractions.slice(0, 5).forEach(function (attraction, index) {
+
+        let randomAttractions = sortedAttractions.sort(() => .5 - Math.random()).slice(0,10)
+        randomAttractions.forEach(function (attraction, index) {
         //   var card = createCard(attraction);
         var card = carouselItem(attraction, index);
         //   modalContent.append(card);
@@ -254,6 +256,7 @@ $(document).ready(function () {
         return;
       }
   
+      carouselInner.empty();
       getAttractions(citySearch);
     });
   });
