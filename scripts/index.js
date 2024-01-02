@@ -47,7 +47,7 @@ $(document).ready(function () {
         $("#time-input, #activity-input").val("");
       } else {
         // Display an alert if fields are not filled
-        alert("Please fill in both Time and Type Activity.");
+        searchBtnModal.modal("show");
       }
     });
 
