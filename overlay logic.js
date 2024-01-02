@@ -1,12 +1,12 @@
-const btn = $('#btn')
-const overlay = $('#overlay')
+// const btn = $('#searchButton')
+// const overlay = $('#overlay')
 
-btn.on('click', function(){
+// btn.on('click', function(){
 
-overlay.removeClass('hidden')
+// overlay.removeClass('hidden')
 
-setTimeout(() => {
-overlay.addClass('hidden')
-}, 5000);
+// setTimeout(() => {
+// overlay.addClass('hidden')
+// }, 5000);
 
-})
+// });
