@@ -151,7 +151,7 @@ $(document).ready(function () {
         .addClass("booking-link btn btn-secondary")
         .attr("href", attraction.website)
         .attr("target", "_blank")
-        .text("Visit Website");
+        .text("URL");
   
       // Time input
       var timeInput2 = $("<input>")
@@ -165,11 +165,16 @@ $(document).ready(function () {
         .addClass("btn primary-btn saveButton")
         .attr("type", "button")
         .attr("id", "button-addon2")
-        .text("Save to Planner");
+        .text("Save");
   
       saveButton2.on("click", function () {
         var time = timeInput2.val().trim();
         var locationTitle = title.text();
+        //clear time input
+        timeInput2.val("");
+        //alert event saved to planner
+        timeInput2.attr("placeholder", "Saved");
+        //console logs for time and location
         console.log(time);
         console.log(locationTitle);
   
