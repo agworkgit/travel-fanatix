@@ -168,8 +168,9 @@ textarea {
     text-align: center;
 }
 
+/* Carousel Buttons */
 .carousel-control-next, .carousel-control-prev {
-    bottom: 45%;
+    margin-inline: -4.5vw !important;
 }
 
 /* Widescreen Layout Adjustment */
