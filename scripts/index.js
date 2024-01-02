@@ -47,7 +47,7 @@ $(document).ready(function () {
         $("#time-input, #activity-input").val("");
       } else {
         // Display an alert if fields are not filled
-        searchBtnModal.modal("show");
+        alert("Please fill in both Time and Type Activity.");
       }
     });
 
@@ -117,7 +117,7 @@ $(document).ready(function () {
       `);
 
       // Display the new checklist output
-      newChecklist.appendTo("#checklist-output-container");
+      newChecklist.prependTo("#checklist-output-container");
     }
   });
 
