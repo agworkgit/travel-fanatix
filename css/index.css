@@ -157,6 +157,22 @@ textarea {
     color: #ffffff; /* Light text color */
   }
 
+.carousel-box {
+    padding: 10px;
+
+}
+
+.attraction-name {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* Carousel Buttons */
+.carousel-control-next, .carousel-control-prev {
+    margin-inline: -4.5vw !important;
+}
+
 /* Widescreen Layout Adjustment */
 @media screen and (min-width: 1200px) {
     .page {

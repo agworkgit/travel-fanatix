@@ -106,7 +106,7 @@ $(document).ready(function () {
           }
         );
 
-        let randomAttractions = sortedAttractions.sort(() => .5 - Math.random()).slice(0,10)
+        let randomAttractions = sortedAttractions.sort(() => .5 - Math.random()).slice(0,5)
         randomAttractions.forEach(function (attraction, index) {
         //   var card = createCard(attraction);
         var card = carouselItem(attraction, index);
@@ -124,19 +124,18 @@ $(document).ready(function () {
         var cardHeader = $("<div>")
           .addClass("card-header")
           .text("Ranking: " + attraction.ranking);
-        var cardBody = $("<div>").addClass("card-body");
+        var cardBody = $("<div>").addClass("card-body carousel-box");
         var colDiv = $("<div>").addClass("col-md-12 col-lg-12");
-        var title = $("<h5>").addClass("card-title").text(attraction.name);
-        var isOpen = $("<h6>")
-          .addClass("card-title")
-          .text(attraction.is_closed ? "Closed" : "Open");
+        var title = $("<h5>").addClass("card-title attraction-name").text(attraction.name);
         var content = $("<p>").addClass("card-text").text(attraction.description);
         var carouselImg = $("<img>")
-        .addClass("d-block w-100")
+        .addClass("d-block w-100 carousel-image")
         .attr("src", attraction.photo.images.medium.url)
         .css({
-          height: "100px", // Set default height
-          width: "100%", // Maintain full width
+          "object-fit": "cover",
+          "object-position": "center",
+          height: "25vh",
+          width: "100%", 
           "border-radius": "5px",
         })
         .attr("alt", "Attraction Image");
@@ -152,7 +151,7 @@ $(document).ready(function () {
         .addClass("booking-link btn btn-secondary")
         .attr("href", attraction.website)
         .attr("target", "_blank")
-        .text("Book Visit");
+        .text("Visit Website");
   
       // Time input
       var timeInput2 = $("<input>")
@@ -182,7 +181,7 @@ $(document).ready(function () {
         inputGroup.append(websiteLink, timeInput2, saveButton2);
 
         colDiv.append(carouselImg);
-        cardBody.append(colDiv, title, isOpen, content, inputGroup);
+        cardBody.append(colDiv, title, content, inputGroup);
         card.append(cardHeader, cardBody)
         carItemEl.append(card);
 
