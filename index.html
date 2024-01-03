@@ -10,7 +10,8 @@
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <!-- Custom CSS -->
   <link rel="stylesheet" href="./css/index.css">
-  <!-- <link rel="stylesheet" href="./css/modal-carousel-styling.css"> -->
+  <!-- Custom icon -->
+  <link rel="icon" type="image/x-icon" href="./resources/icon/favicon.png">
 </head>
 
 <body class="bg-light">
@@ -30,15 +31,18 @@
     <!-- Hero Section -->
     <div id="hero" class="container-fluid mb-3">
       <div class="card bg-dark text-white top-dash" style="max-height: 30vh;">
+
         <!-- Background Image -->
         <img src="./resources/images/daniel-ramirez-q4TfWtnz_xw-unsplash.jpg"
           class="card-img" alt="Location picture" style="max-height: 30vh; object-fit: cover;" />
+
         <!-- Overlay Content -->
         <div class="card-img-overlay" style="background-color: rgba(0, 0, 0, 0.4);">
           <h5 class="d-flex align-items-center nav-time fs-5">Time</h5>
           <h5 class="card-title" data-update="day">Day</h5>
           <h5 class="card-title" id="location">Location</h5>
         </div>
+
         <!-- Additional Info -->
         <div class="card-img-overlay right-info">
           <h5 class="card-title" id="temperature">Temperature</h5>
@@ -55,6 +59,7 @@
     <!-- Checklist Section -->
     <div id="checklist" class="container-fluid">
       <div class="row">
+        
         <!-- Recommendations Section -->
         <div class="col-sm-6">
           <div id="recommendations-init" class="card text-white bg-dark mb-3">
@@ -69,7 +74,6 @@
           </div>
         </div>
   
-
       <!-- Day Planner Section -->
       <div class="col-sm-6 mb-3 mb-sm-0">
           <div class="card text-white bg-dark">
@@ -88,17 +92,6 @@
           </div>
         </div>
       </div>
-
-      <!-- Recommendations Modal -->
-      <!-- <div class="modal fade" id="recModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content text-white bg-dark">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Attractions in the City</h5>
-              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
-                aria-label="Close"></button>
-            </div>
-            <div class="modal-body" id="modal-content">
       
       <!-- Carousel and Modal -->
       <div class="modal fade" id="recModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -146,7 +139,6 @@
         </div>
       </div>
   
-
       <!-- City Not Found Modal -->
       <div class="modal searchBtnModal" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -166,7 +158,6 @@
         </div>
       </div>
 
-      
       <!-- Footer Section -->
       <div class="container">
         <footer class="py-5">
@@ -178,20 +169,25 @@
         </footer>
       </div>
 
-      <!-- JavaScript Libraries -->
+      <!-- Scripts -->
+      <!-- CDNs -->
+      <!-- jQuery -->
       <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+      <!-- Popper -->
       <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
         crossorigin="anonymous"></script>
+      <!-- Bootstrap -->
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
         integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
         crossorigin="anonymous"></script>
+      <!-- DayJS -->
       <script src="https://cdn.jsdelivr.net/npm/dayjs@1.10.6"></script>
-      <!-- Custom Scripts -->
+      <!-- Main Logic -->
       <script src="./scripts/index.js"></script>
+      <!-- Carousel Logic -->
       <script src="./scripts/carousel-logic.js"></script>
-      <script src="./scripts/POI API carousel logic.js"></script>
     </div>
   </div>
 </body>
