@@ -12,7 +12,7 @@ If the point of interest is something you want to see, add it to your planner wi
 
 ## URL
 
-Check the deployed web app at the following link <https://agworkgit.github.io/edx-project-1/>
+Check the deployed web app at the following link <https://agworkgit.github.io/travel-fanatix/>
 
 ## APIs
 
